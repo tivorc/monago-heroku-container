@@ -1,4 +1,4 @@
-name: 'Deploy horuku container'
+name: "Deploy horuku container"
 on:
   push:
     branches:
@@ -13,16 +13,11 @@ jobs:
           node-version: 12
       - run: npm install
       - run: npm run build
-  deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
       - name: Build, Push and Deploy to Heroku #set the whatever name you want to this step
         id: heroku
-        uses: jctaveras/heroku-deploy@v1.0.0  # use the latest version of the action
+        uses: jctaveras/heroku-deploy@v1.0.0 # use the latest version of the action
         with:
           email: ${{ secrets.HEROKU_EMAIL }} # your heroku email
           api_key: ${{ secrets.HEROKU_API_KEY }} # your  heroku api key
           app_name: ${{ secrets.HEROKU_APP_NAME }} # you aplication name
-          dockerfile_path: './' # set the path to the folder wher the Dokerfile is located
+          dockerfile_path: "./" # set the path to the folder wher the Dokerfile is located
