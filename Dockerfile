@@ -1,5 +1,7 @@
 FROM nginx:alpine
 
+RUN npm install
+RUN npm run build
 COPY nginx/default.conf /etc/nginx/conf.d/
 RUN pwd
 RUN ls
