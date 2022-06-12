@@ -18,8 +18,8 @@ jobs:
 
     - name: Build project
       uses: actions/setup-node@v3
-        with:
-          node-version: 12
+      with:
+        node-version: 12
       - run: npm install
       - run: npm run build
 
