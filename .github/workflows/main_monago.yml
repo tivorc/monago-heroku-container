@@ -36,7 +36,7 @@ jobs:
       uses: docker/build-push-action@v2
       with:
         push: true
-        context: "{{defaultContext}}:mysubdir"
+        context: "{{defaultContext}}"
         tags: monago.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_ab0c5fdca99e4096a8dae41c72ebf2e7 }}/mcr.microsoft.com/appsvc/staticsite:${{ github.sha }}
         file: ./Dockerfile
     - run: ls -la
